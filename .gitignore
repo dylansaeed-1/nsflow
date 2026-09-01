@@ -1,0 +1,10 @@
+build/
+.cache/
+compile_commands.json
+*.o
+*.so
+*.vtu
+*.vti
+*.pvd
+data/
+.vscode_settings.json
