@@ -1,6 +1,2 @@
-#include <iostream>
 #include "nsflow/version.hpp"
-const std::string version(){
-
-    return "Hello world";
-}
+const std::string version() { return "Hello world"; }
