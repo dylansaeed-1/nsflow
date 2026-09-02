@@ -1,1 +1,2 @@
-const char* version();
+#include <iostream>
+const std::string version();
