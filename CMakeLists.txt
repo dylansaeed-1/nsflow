@@ -16,4 +16,3 @@ add_executable(nsflow_tests tests/test_version.cpp)
 target_link_libraries(nsflow_tests PRIVATE version Catch2::Catch2WithMain)
 include(Catch)
 catch_discover_tests(nsflow_tests)
-
