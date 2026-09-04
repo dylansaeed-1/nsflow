@@ -10,12 +10,17 @@ include(CTest)
 FetchContent_Declare(catch2 GIT_REPOSITORY https://github.com/catchorg/Catch2.git GIT_TAG v3.15.0)
 FetchContent_MakeAvailable(catch2)
 
-add_library(version STATIC src/version.cpp)
-target_include_directories(version PUBLIC include)
-add_executable(main apps/main.cpp)
-target_link_libraries(main PRIVATE version)
+add_library(nsflow_core STATIC src/field2d.cpp)
+target_include_directories(nsflow_core PUBLIC include)
 
-add_executable(nsflow_tests tests/test_vec2.cpp)
-target_link_libraries(nsflow_tests PRIVATE version Catch2::Catch2WithMain)
+add_executable(main apps/main.cpp)
+target_link_libraries(main PRIVATE nsflow_core)
+
+add_executable(nsflow_tests tests/test_vec2.cpp
+							tests/test_field2d.cpp
+							)
+
+target_link_libraries(nsflow_tests PRIVATE nsflow_core Catch2::Catch2WithMain)
+
 include(Catch)
 catch_discover_tests(nsflow_tests)

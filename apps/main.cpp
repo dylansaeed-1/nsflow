@@ -1,6 +1,3 @@
-#include "nsflow/version.hpp"
+#include "nsflow/vec2.hpp"
 #include <iostream>
-int main() {
-    std::cout << version() << std::endl;
-    return 0;
-}
+int main() { return 0; }
