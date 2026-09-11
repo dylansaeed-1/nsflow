@@ -34,7 +34,7 @@ TEST_CASE("Boundary condition") {
         bc.apply(g, nsflow::Side2D::RIGHT, f);
         for(int j  = 0; j < f.ny(); ++j){
             INFO("Index " << j << ", f(ny-1, " << j << "): " << f(f.ny()-1, j) << "f(ny): " << f(f.ny(),j));
-            REQUIRE((f(f.ny()-1, j) - f(f.ny(), j))/g.dx() == Catch::Approx(2.0));
+            REQUIRE((f(f.nx(), j) - f(f.nx()-1, j))/g.dx() == Catch::Approx(2.0));
         }
     }
 }
