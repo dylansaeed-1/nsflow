@@ -24,4 +24,11 @@ inline double norm(Vec2 v) { return std::sqrt(norm_squared(v)); };
 
 inline double dot(Vec2 a, Vec2 b) { return a.x * b.x + a.y * b.y; };
 
+struct Index2 {
+    int i, j;
+};
+inline Index2 operator+(Index2 a, Index2 b) { return {a.i + b.i, a.j + b.j}; }
+
+inline Index2 operator-(Index2 a, Index2 b) { return {a.i - b.i, a.j - b.j}; }
+
 } // namespace nsflow
