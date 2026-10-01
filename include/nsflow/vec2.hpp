@@ -16,9 +16,9 @@ inline Vec2 operator*(double s, Vec2 b) { return {s * b.x, s * b.y}; };
 
 inline Vec2 operator*(Vec2 b, double s) { return {s * b.x, s * b.y}; };
 
-inline Vec2 operator/(Vec2 b, double s) { return {s / b.x, s / b.y}; };
+inline Vec2 operator/(Vec2 b, double s) { return {b.x / s, b.y / s}; };
 
-inline double norm_squared(Vec2 v) { return pow(v.x, 2) + pow(v.y, 2); };
+inline double norm_squared(Vec2 v) { return v.x*v.x +v.y*v.y; };
 
 inline double norm(Vec2 v) { return std::sqrt(norm_squared(v)); };
 

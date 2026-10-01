@@ -1,6 +1,6 @@
+#pragma once
 #include "nsflow/grid.hpp"
 #include <vector>
-#pragma once
 namespace nsflow {
 class Field2D {
   public:

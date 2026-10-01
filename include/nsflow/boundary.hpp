@@ -1,15 +1,18 @@
+#pragma once
 #include "nsflow/field2d.hpp"
+#include "nsflow/grid.hpp"
 #include "nsflow/vec2.hpp"
 namespace nsflow {
 
-enum Side2D { LEFT, RIGHT, TOP, BOTTOM };
+enum class Side2D { LEFT, RIGHT, TOP, BOTTOM };
 Index2 get_offset(Side2D s);
 
 class Boundary {
 
   public:
     virtual ~Boundary() = default;
-    void apply(const Grid &, const Side2D, Field2D &);
+    void apply(const Grid &, const Side2D, Field2D &) const;
+  protected:
     double virtual ghost_value(const double v, const double h) const = 0;
 };
 
@@ -35,4 +38,6 @@ class Dirichlet : public Boundary {
     // boundary condiiton to enforce
     double val_;
 };
+
+void fillGhosts(const Grid &, const Boundary& left, const Boundary& right, const Boundary& top, const Boundary& bottom, Field2D& f);
 } // namespace nsflow
